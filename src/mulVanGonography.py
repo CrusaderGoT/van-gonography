@@ -261,6 +261,7 @@ class VanGons:
         output_directory: Dir to save image'''
         print('please wait, cheking files...', end='')
         time.sleep(1)
+        main_ext = image.split('.')[-1]
         try:
             # Check if the cover image file exists
             with open(image, 'rb'):
@@ -350,7 +351,7 @@ class VanGons:
                                 break
 
                 # Save the modified cover image as "Cover_{extension}.png"
-                output_filename = f"Cover.png"
+                output_filename = f"Cover.{main_ext}"
                 if output_directory:
                     output_filename = os.path.join(output_directory, output_filename)
                 
@@ -462,4 +463,3 @@ class VanGons:
             else:
                 hfile+=1
                 print(f"successfully extracted file '{os.path.basename(output_filename)}' to '{os.path.dirname(output_filename)}'")
-    
